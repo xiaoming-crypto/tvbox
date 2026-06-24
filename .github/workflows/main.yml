@@ -1,0 +1,41 @@
+name: Safe Auto Sync
+
+on:
+  schedule:
+    - cron: '0 0,12 * * *' # 每天早晚8点自动合并
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出你自己的仓库代码
+      - name: Checkout Local Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 必须设为0，拉取完整历史以便合并
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. 配置 Git 机器人身份
+      - name: Set up Git Config
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      # 3. 添加原作者作为远程上游（Upstream），拉取并安全合并
+      - name: Merge Upstream
+        run: |
+          # 添加原作者仓库（请把下面换成原作者的真实 https 链接）
+          git remote add upstream https://github.com/qist/tvbox.git
+          
+          # 抓取原作者最新代码
+          git fetch upstream
+          
+          # 把原作者的分支（如 master）合并到你当前的分支，冲突时以原作者为准，但会保留你的独有文件（如工作流）
+          # 如果你和原作者的分支叫 main，请把下面的 master 改为 main
+          git merge upstream/master -m "自动合并上游更新" --allow-unrelated-histories || true
+
+      # 4. 把合并后的安全代码推回你自己的仓库
+      - name: Push Changes
+        run: |
+          git push origin HEAD
