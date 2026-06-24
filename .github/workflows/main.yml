@@ -134,18 +134,28 @@ jobs:
     needs: git-push # 👈 确保代码和最新 json 推回 master 后再部署
     runs-on: ubuntu-latest
     steps:
-      - name: Install Vercel CLI (latest) 
-        run: npm install -g vercel@latest
-        
+      - name: Install Vercel CLI (latest)
+        run: |
+          npm install -g vercel@latest
+          vercel --version
+
       - name: Checkout master branch
         uses: actions/checkout@v4
         with:
-          ref: master # 强行拉取刚刚被 git-push 更新过的最新主分支
+          ref: master
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod' # 👈 确保直接发布到生产环境（直接更新线上链接）
+      - name: Deploy to Vercel using CLI
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          # confirm version is >=47.2.2
+          vercel --version
+
+          # Deploy. Use either form depending on CLI version; --confirm avoids interactive prompt.
+          # Option A (simple):
+          vercel --prod --token "$VERCEL_TOKEN" --confirm
+
+          # Option B (explicit deploy command):
+          # vercel deploy --prod --token "$VERCEL_TOKEN" --confirm --org "$VERCEL_ORG_ID" --project "$VERCEL_PROJECT_ID"
