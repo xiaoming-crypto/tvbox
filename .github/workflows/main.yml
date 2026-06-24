@@ -1,4 +1,4 @@
-name: Update xiaosa and Sync Upstream
+name: Update xiaosa, Sync and Deploy to Vercel
 
 on:
   workflow_dispatch:
@@ -11,46 +11,38 @@ on:
       - "tools/**"
 
 jobs:
-  # 🔄 阶段一：新加入的安全同步任务
+  # 🔄 阶段一：安全同步上游（保持原样）
   sync-upstream:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Local Repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 拉取完整历史以便无损合并
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Set up Git Config
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Merge Upstream
         run: |
-          # 💡 【核心：请把下面换成你想同步的原作者的真实 https 链接】
           git remote add upstream https://github.com/qist/tvbox.git
           git fetch upstream
-          
-          # 安全合并上游代码，遇到冲突以原作者为准，但绝对不会删掉你的本地文件和工作流
           git merge upstream/master -m "自动合并上游更新" --allow-unrelated-histories || true
-
       - name: Push Combined Code
         run: |
           git push origin master
 
-  # 🐍 阶段二：运行你原有的 xiaosa 构建（依赖同步任务完成）
+  # 🐍 阶段二：xiaosa 工具链（保持原样）
   xiaosa:
-    needs: sync-upstream # 👈 确保先同步完原作者，再用最新代码跑 Python
+    needs: sync-upstream
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - name: Checkout the branch
         uses: actions/checkout@v4
-
       - name: xiaosa tools
         run: |
-          pwd
           cd tools/
           pip install demjson3 pycryptodome requests --break-system-packages
           python tvbox.py https://9877.kstore.space/ONE/one.json xs.json dec
@@ -65,9 +57,8 @@ jobs:
           rm -rf dianshi_with_app_sites.json jsm_with_app_sites.json output xs.json
           cd ../
         shell: bash
-
       - name: Upload xiaosa artifacts
-        uses: actions/upload-artifact@v4 # 修正组件版本配合 checkout v4
+        uses: actions/upload-artifact@v4
         with:
           name: xiaosa-output
           path: |
@@ -75,24 +66,17 @@ jobs:
             jsm.json
             jar/spider.jar
             xiaosa/
-            XBPQ/
-            XYQHiker/
-            json/
-            py/
-            js/
 
-  # 🦅 阶段三：运行你原有的 fty 构建（依赖同步任务完成）
+  # 🦅 阶段三：fty 工具链（保持原样）
   fty:
-    needs: sync-upstream # 👈 确保先同步完原作者，再用最新代码跑 Python
+    needs: sync-upstream
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
       - name: Checkout the branch
         uses: actions/checkout@v4
-
       - name: fty tools
         run: |
-          pwd
           cd tools/
           pip install demjson3 pycryptodome requests --break-system-packages
           python tvbox.py https://www.xn--sss604efuw.net/tv ty.json dec
@@ -104,9 +88,8 @@ jobs:
           rm -rf tvbox_cleaned.json fan.txt EXT ty.json
           cd ../
         shell: bash
-
       - name: Upload fty artifacts
-        uses: actions/upload-artifact@v4 # 修正组件版本配合 checkout v4
+        uses: actions/upload-artifact@v4
         with:
           name: fty-output
           path: |
@@ -114,7 +97,7 @@ jobs:
             jar/fan.txt
             FTY/
 
-  # 🚀 阶段四：安全的将你的 Python 成果推回仓库
+  # 🚀 阶段四：保存资产回 GitHub（保持原样）
   git-push:
     needs: [xiaosa, fty]
     runs-on: ubuntu-latest
@@ -123,20 +106,17 @@ jobs:
       - name: Checkout the branch
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 同样拉取完整历史，拒绝暴力覆盖
-
+          fetch-depth: 0
       - name: Download xiaosa artifacts
         uses: actions/download-artifact@v4
         with:
           name: xiaosa-output
         continue-on-error: true
-
       - name: Download fty artifacts
         uses: actions/download-artifact@v4
         with:
           name: fty-output
         continue-on-error: true
-
       - name: Git push assets to master branch
         run: |
           git config --local user.name "github-actions[bot]"
@@ -144,8 +124,25 @@ jobs:
           git add .
           if ! git diff-index --quiet HEAD --; then
             git commit -m "自动拉取上游并更新自定义源 $(date +%Y%m%d%H%M)"
-            # 💡 【核心改动：把原先的 git push -f 换成标准的 push，顺从安全合并】
             git push origin master
           else
             echo "没有文件更新，不执行 git push"
           fi
+
+  # ⚡ 阶段五：【全新加入】秒级自动部署到 Vercel
+  deploy-vercel:
+    needs: git-push # 👈 确保代码和最新 json 推回 master 后再部署
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master # 强行拉取刚刚被 git-push 更新过的最新主分支
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod' # 👈 确保直接发布到生产环境（直接更新线上链接）
