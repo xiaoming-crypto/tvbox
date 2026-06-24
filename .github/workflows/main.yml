@@ -129,6 +129,9 @@ jobs:
             echo "没有文件更新，不执行 git push"
           fi
 
+      - name: Install Vercel CLI >= 47.2.2
+        run: npm install -g vercel@^47.2.2
+
   # ⚡ 阶段五：【全新加入】秒级自动部署到 Vercel
   deploy-vercel:
     needs: git-push # 👈 确保代码和最新 json 推回 master 后再部署
