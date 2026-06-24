@@ -1,41 +1,151 @@
-name: Safe Auto Sync
+name: Update xiaosa and Sync Upstream
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 0,12 * * *' # 每天早晚8点自动合并
-  workflow_dispatch: # 允许手动触发
+    - cron: "20 5 * * *"
+  push:
+    branches:
+      - master
+    paths:
+      - "tools/**"
 
 jobs:
-  merge:
+  # 🔄 阶段一：新加入的安全同步任务
+  sync-upstream:
     runs-on: ubuntu-latest
     steps:
-      # 1. 检出你自己的仓库代码
       - name: Checkout Local Repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 必须设为0，拉取完整历史以便合并
+          fetch-depth: 0 # 拉取完整历史以便无损合并
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. 配置 Git 机器人身份
       - name: Set up Git Config
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
 
-      # 3. 添加原作者作为远程上游（Upstream），拉取并安全合并
       - name: Merge Upstream
         run: |
-          # 添加原作者仓库（请把下面换成原作者的真实 https 链接）
+          # 💡 【核心：请把下面换成你想同步的原作者的真实 https 链接】
           git remote add upstream https://github.com/qist/tvbox.git
-          
-          # 抓取原作者最新代码
           git fetch upstream
           
-          # 把原作者的分支（如 master）合并到你当前的分支，冲突时以原作者为准，但会保留你的独有文件（如工作流）
-          # 如果你和原作者的分支叫 main，请把下面的 master 改为 main
+          # 安全合并上游代码，遇到冲突以原作者为准，但绝对不会删掉你的本地文件和工作流
           git merge upstream/master -m "自动合并上游更新" --allow-unrelated-histories || true
 
-      # 4. 把合并后的安全代码推回你自己的仓库
-      - name: Push Changes
+      - name: Push Combined Code
         run: |
-          git push origin HEAD
+          git push origin master
+
+  # 🐍 阶段二：运行你原有的 xiaosa 构建（依赖同步任务完成）
+  xiaosa:
+    needs: sync-upstream # 👈 确保先同步完原作者，再用最新代码跑 Python
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout the branch
+        uses: actions/checkout@v4
+
+      - name: xiaosa tools
+        run: |
+          pwd
+          cd tools/
+          pip install demjson3 pycryptodome requests --break-system-packages
+          python tvbox.py https://9877.kstore.space/ONE/one.json xs.json dec
+          python build_local.py xs.json output
+          \cp -pdr output/* ../xiaosa/
+          python xiao.py ../xiaosa/api.json dianshi.json
+          python xiao.py ../xiaosa/api.json jsm.json
+          python copy_xbpq.py dianshi_with_app_sites.json
+          \cp -pdr dianshi_with_app_sites.json ../dianshi.json
+          \cp -pdr jsm_with_app_sites.json ../jsm.json
+          \cp -pdr ../xiaosa/spider.jar ../jar/spider.jar
+          rm -rf dianshi_with_app_sites.json jsm_with_app_sites.json output xs.json
+          cd ../
+        shell: bash
+
+      - name: Upload xiaosa artifacts
+        uses: actions/upload-artifact@v4 # 修正组件版本配合 checkout v4
+        with:
+          name: xiaosa-output
+          path: |
+            dianshi.json
+            jsm.json
+            jar/spider.jar
+            xiaosa/
+            XBPQ/
+            XYQHiker/
+            json/
+            py/
+            js/
+
+  # 🦅 阶段三：运行你原有的 fty 构建（依赖同步任务完成）
+  fty:
+    needs: sync-upstream # 👈 确保先同步完原作者，再用最新代码跑 Python
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout the branch
+        uses: actions/checkout@v4
+
+      - name: fty tools
+        run: |
+          pwd
+          cd tools/
+          pip install demjson3 pycryptodome requests --break-system-packages
+          python tvbox.py https://www.xn--sss604efuw.net/tv ty.json dec
+          python fty.py ty.json
+          \cp -pdr tvbox_cleaned.json ../fty.json
+          \cp -pdr fan.txt ../jar/fan.txt
+          git clone --depth=1 --recursive https://github.com/fantaiying7/EXT.git
+          \cp -pdr EXT/* ../FTY/
+          rm -rf tvbox_cleaned.json fan.txt EXT ty.json
+          cd ../
+        shell: bash
+
+      - name: Upload fty artifacts
+        uses: actions/upload-artifact@v4 # 修正组件版本配合 checkout v4
+        with:
+          name: fty-output
+          path: |
+            fty.json
+            jar/fan.txt
+            FTY/
+
+  # 🚀 阶段四：安全的将你的 Python 成果推回仓库
+  git-push:
+    needs: [xiaosa, fty]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout the branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 同样拉取完整历史，拒绝暴力覆盖
+
+      - name: Download xiaosa artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: xiaosa-output
+        continue-on-error: true
+
+      - name: Download fty artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: fty-output
+        continue-on-error: true
+
+      - name: Git push assets to master branch
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "自动拉取上游并更新自定义源 $(date +%Y%m%d%H%M)"
+            # 💡 【核心改动：把原先的 git push -f 换成标准的 push，顺从安全合并】
+            git push origin master
+          else
+            echo "没有文件更新，不执行 git push"
+          fi
