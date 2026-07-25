@@ -121,6 +121,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git reset .github/
           git add .
           if ! git diff-index --quiet HEAD --; then
             git commit -m "自动拉取上游并更新自定义源 $(date +%Y%m%d%H%M)"
