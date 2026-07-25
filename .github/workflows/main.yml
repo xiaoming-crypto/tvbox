@@ -131,7 +131,7 @@ jobs:
 
   # ⚡ 阶段五：【全新加入】秒级自动部署到 Vercel
   deploy-vercel:
-    needs: git-push # 👈 确保代码和最新 json 推回 master 后再部署
+    needs: git-push
     runs-on: ubuntu-latest
     steps:
       - name: Install Vercel CLI (latest)
@@ -150,12 +150,7 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
-          # confirm version is >=47.2.2
           vercel --version
-
-          # Deploy. Use either form depending on CLI version; --confirm avoids interactive prompt.
-          # Option A (simple):
-          vercel --prod --token "$VERCEL_TOKEN" --confirm
-
-          # Option B (explicit deploy command):
-          # vercel deploy --prod --token "$VERCEL_TOKEN" --confirm --org "$VERCEL_ORG_ID" --project "$VERCEL_PROJECT_ID"
+          
+          # 使用非交互式命令直接部署到生产环境（自动关联组织与项目 ID）
+          vercel deploy --prod --token "$VERCEL_TOKEN" --yes --scope "$VERCEL_ORG_ID"
