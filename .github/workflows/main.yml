@@ -11,7 +11,7 @@ on:
       - "tools/**"
 
 jobs:
-  # 🔄 阶段一：安全同步上游（保持原样）
+  # 🔄 阶段一：安全同步上游
   sync-upstream:
     runs-on: ubuntu-latest
     steps:
@@ -31,9 +31,16 @@ jobs:
           git merge upstream/master -m "自动合并上游更新" --allow-unrelated-histories || true
       - name: Push Combined Code
         run: |
-          git push origin master
+          git add .
+          git reset .github/   # 👈 这里也加上，防止阶段一同步时误触工作流文件权限限制
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "自动合并上游更新 $(date +%Y%m%d%H%M)"
+            git push origin master
+          else
+            echo "没有文件更新，不执行 git push"
+          fi
 
-  # 🐍 阶段二：xiaosa 工具链（保持原样）
+  # 🐍 阶段二：xiaosa 工具链
   xiaosa:
     needs: sync-upstream
     runs-on: ubuntu-latest
@@ -67,7 +74,7 @@ jobs:
             jar/spider.jar
             xiaosa/
 
-  # 🦅 阶段三：fty 工具链（保持原样）
+  # 🦅 阶段三：fty 工具链
   fty:
     needs: sync-upstream
     runs-on: ubuntu-latest
@@ -97,7 +104,7 @@ jobs:
             jar/fan.txt
             FTY/
 
-  # 🚀 阶段四：保存资产回 GitHub（已加入防拦截处理）
+  # 🚀 阶段四：保存资产回 GitHub
   git-push:
     needs: [xiaosa, fty]
     runs-on: ubuntu-latest
@@ -122,7 +129,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git reset .github/   # 👈 关键点：将工作流配置从暂存区剔除，避免权限报错
+          git reset .github/   # 👈 剔除工作流配置
           if ! git diff-index --quiet HEAD --; then
             git commit -m "自动拉取上游并更新自定义源 $(date +%Y%m%d%H%M)"
             git push origin master
