@@ -97,7 +97,7 @@ jobs:
             jar/fan.txt
             FTY/
 
-  # 🚀 阶段四：保存资产回 GitHub（保持原样）
+  # 🚀 阶段四：保存资产回 GitHub（已加入防拦截处理）
   git-push:
     needs: [xiaosa, fty]
     runs-on: ubuntu-latest
@@ -121,8 +121,8 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git reset .github/
           git add .
+          git reset .github/   # 👈 关键点：将工作流配置从暂存区剔除，避免权限报错
           if ! git diff-index --quiet HEAD --; then
             git commit -m "自动拉取上游并更新自定义源 $(date +%Y%m%d%H%M)"
             git push origin master
@@ -130,7 +130,7 @@ jobs:
             echo "没有文件更新，不执行 git push"
           fi
 
-  # ⚡ 阶段五：【全新加入】秒级自动部署到 Vercel
+  # ⚡ 阶段五：自动部署到 Vercel
   deploy-vercel:
     needs: git-push
     runs-on: ubuntu-latest
@@ -152,6 +152,4 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: |
           vercel --version
-          
-          # 使用非交互式命令直接部署到生产环境（自动关联组织与项目 ID）
           vercel deploy --prod --token "$VERCEL_TOKEN" --yes --scope "$VERCEL_ORG_ID"
