@@ -1,22 +1,8 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "spider": "./jar/fan.txt;md5;46e3b3a379431c6e3060691081cd8748",
-  "wallpaper": "https://饭的动态壁纸.xxooo.cf/",
-  "sites": [
-    {"key": "点我切源","name": "修复原创，新增无限线路(8月13更新)","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
-=======
-  "spider": "./jar/fan.txt;md5;0abc42670ded8012499d2e46f2bab7b0",
-  "wallpaper": "https://饭的动态壁纸.xxooo.cf/",
-  "sites": [
-    {"key": "点我切源","name": "<8.14更新>修复听书、ZB","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
->>>>>>> upstream/master
-=======
   "spider": "./jar/fan.txt;md5;ea8ab37f3d7bedd2bfa2b4b1e4d1eca4",
   "wallpaper": "https://饭的动态壁纸.xxooo.cf/",
   "sites": [
     {"key": "点我切源","name": "<8.16更新> 修复哔哔、听书、ZB","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
->>>>>>> upstream/master
     {"key": "MDrive","name": "🗂我的云盘┃我配置","type": 3,"api": "csp_MyDriveGuard","changeable": 0,"indexs": 0,"searchable": 1,"style": {"type": "oval"},"ext": {"Cloud-drive": "tvfan/Cloud-drive.txt"}},
     {"key": "玩偶","name": "👽玩偶哥哥┃4K弹幕","type": 3,"api": "csp_WoGGGuard","timeout": 30,"searchable": 1,"quickSearch": 1,"changeable": 0,"ext": {"Cloud-drive": "tvfan/Cloud-drive.txt"}},
     {"key": "YGP","name": "🚀叨观荐影┃预告片","type": 3,"api": "csp_YGPGuard","searchable": 0,"quickSearch": 0,"changeable": 0},
