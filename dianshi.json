@@ -1,5 +1,5 @@
 {
-  "spider": "./jar/spider.jar;md5;767f103c613c9eca20845c4934f2d976",
+  "spider": "./jar/spider.jar;md5;cdcbcd8c22ea43029505a0ee4358e8ca",
   "lives": [
     {"name": "live","boot": false,"type": 0,"url": "./tv.txt","playerType": 2,"ua": "okhttp/3.8.1","timeout": 20,"epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}","logo": "https://logo.wyfc.qzz.io/{name}.png"}
   ],
@@ -15,10 +15,14 @@
     {"key": "fyyy","name": "飞宇影院","type": 3,"api": "csp_XBPQ","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": {"分类url": "http://ntfeiyu.com/nt/{cateId}/area/{area}/by/{by}/class/{class}/lang/{lang}/page/{catePg}/year/{year}.html","分类": "电影$1#电视剧$2#综艺$3#动漫$4"},"header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
     {"key": "cupfox_in","name": "茶杯狐 • cupfox.in","type": 3,"api": "./lib/drpy2.min.js","ext": "./js/茶杯狐.js","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1,"header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
     {"key": "italkbbtv","name": "ITalkBB • 外","type": 3,"api": "./py/ITalkBBTV.py","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1},
+    {"key": "OleLive","name": "欧乐影院 • 外","type": 3,"api": "./py/OleLive.py","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1},
     {"key": "TVB云播","name": "TVB云播","type": 3,"api": "./py/TVB云播.py","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1},
+<<<<<<< HEAD
     {"key": "qiletv","name": "奇乐影视","type": 3,"api": "csp_XBPQ","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": "./json/奇乐.json","header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> upstream/master
     {"key": "热播影视","name": "热播 • APP","type": 3,"api": "csp_AppRJ","searchable": 1,"quickSearch": 1,"filterable": 0,"ext": {"url": "http://v.rbotv.cn"}},
     {"key": "一起影视","name": "一起 • APP","type": 3,"api": "csp_AppYQK","searchable": 1,"quickSearch": 1,"filterable": 0},
     {"key": "马猴影视","name": "马猴 • APP","type": 3,"api": "csp_App3Q","ext": {"host": "https://45.150.167.18:8000","finger": "SF-A962FEC75DA28D7514F2A16580334272A78AC0A8429F10C94F47C1BAFC876E3F","updateId": "43c1ef69-3748-aaeb-317f-c621c77653ee","deviceBrand": "vivo","deviceModel": "V2309A","pkg": "com.damahou.tv","sk": "SK-woniu-thanks","ver": "1"}},
@@ -29,6 +33,7 @@
     {"key": "橘汁","name": "橘汁 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "橘汁","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCr8SzZhjYy+rsya1K09t8d2K50pWFoBkgUqMpKOiW+3IEVKd4eTdvg9RSOjQ82kypL6R9BnsmrS1V8s4PVDwjQbUtYhTPPC9Hz16qY7rpD6m0d2vr09/UpWQ5uOy9PR0QTrsioveZ+DIe9jc3C+zBCu/kZSY/R8stwJoiitki3gwIDAQAB","dataKey": "OW1WBLFZCLJ0WTNJCDMYEGXWYVP3PT0=","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.mxj.wylcjbxyx","host": "","site": "https://123-1349250429.cos.ap-shanghai.myqcloud.com/app.txt","version": "3.0.2.3","decrypt": "1"}},
     {"key": "华谊","name": "华谊 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "华谊","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCp9Ek4wIlQAtwFnuBRlsFiow2tr+4UOciGeNKbY7nL74etUqUb6fvpOSOHhFEfaWlfwUpOB17x3JEL3No19nfjCeVYrYPjlJcgoqUWH/tfIfFAQWvtxBIBlKazkhw8d3ChysWmeWRikKqkBsVRY4oqNPuj4sjm6Zult0U4I4prRQIDAQAB","dataKey": "NDBYSZR1DMRRZ05NSUCWEJNIYWLBPT0=","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.muyue.tool","host": "","site": "https://vip.123pan.cn/1851089669/oss/az5.txt","version": "1.0.0.4","decrypt": "1"}},
     {"key": "苹果","name": "苹果 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "小苹果","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCduNEnfxGaLuQRk5ABzXHhPV43zi00sCHjLo8BYc+Wi6xXm2b4v0i28Sq4WlNCKhseft9fz8kO/qLr6/022o1RcuOU7e4GFL3U9WnNODwRBYSYWd+K8nqpI/tAUDmZEBGRWqjrc7x6aMl3A+xpnWkLbPCLsuhbuuUE3tv09oeOpwIDAQAB","dataKey": "S0VNDTJHOFHHCNMRAW5IV2TOS2PBPQ==","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.juechufsh.android.xpg1","host": "","site": "https://xpgandroid03-1372779881.cos.ap-beijing.myqcloud.com/app_xpg_android.txt","version": "1.0.0.3","decrypt": "0"}},
+    {"key": "怀桑","name": "怀桑 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"url": "http://110.42.67.130:1226","dataKey": "kj37zs29q22jk96t","dataIv": "kj37zs29q22jk96t","init": "initV122","ua": "okhttp/3.10.0"}},
     {"key": "蓝鹰","name": "蓝鹰 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"url": "http://103.217.190.91:5566","dataKey": "hagYExMdMkeWfemK","dataIv": "hagYExMdMkeWfemK","init": "initV122","ua": "okhttp/3.10.0"}},
     {"key": "蓝鸟","name": "蓝鸟 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"site": "https://lanyingjisu.oss-cn-wuhan-lr.aliyuncs.com/lyjszx.txt","dataKey": "oW5UxZ5kWVr1DI69","dataIv": "oW5UxZ5kWVr1DI69","init": "initV122","ua": "okhttp/3.10.0"}},
     {"key": "奇奇","name": "奇奇 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"site": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/603.txt","dataKey": "FTgP4Gq8zPiqbt7M","dataIv": "FTgP4Gq8zPiqbt7M","init": "initV122","ua": "okhttp/3.10.0","search": "searchList8"}},
@@ -38,7 +43,7 @@
     {"key": "茉莉","name": "茉莉 • APP","type": 3,"api": "csp_AppGet","searchable": 1,"changeable": 1,"ext": {"site": "https://allinadmin.oss-cn-hangzhou.aliyuncs.com/bk/9.txt","dataKey": "88689667dce61725","dataIv": "88689667dce61725"}},
     {"key": "哔哩合集","name": "哔哩 • 合集","type": 3,"api": "csp_Bili","searchable": 1,"quickSearch": 0,"filterable": 0,"changeable": 0,"style": {"type": "rect","ratio": 1.433},"ext": {"n": "哔哩合集","cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"}},
     {"key": "哔哩视频","name": "哔哩 • 视频","type": 3,"api": "csp_BiliYS","searchable": 1,"quickSearch": 0,"filterable": 0,"changeable": 0,"style": {"type": "rect","ratio": 1.433},"ext": {"cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"}},
-    {"key": "玩偶","name": "玩偶 • 4K","type": 3,"api": "csp_Wogg","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": {"site": ["https://www.wogg.net","https://wogg.xxooo.cf","https://woggpan.xxooo.cf"]},"timeout": 60},
+    {"key": "玩偶","name": "玩偶 • 4K","type": 3,"api": "csp_Wogg","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": {"site": ["https://www.wogg.live","https://woggpan.888484.xyz","https://wogg.xxooo.cf","https://woggpan.xxooo.cf"]},"timeout": 60},
     {"key": "快映","name": "快映 • 4K","type": 3,"api": "csp_PanWebShare","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": {"site": ["http://xsayang.fun","http://38.76.197.172:12521"]},"timeout": 60},
     {"key": "木偶","name": "木偶 • 4K","type": 3,"api": "csp_PanWebShare","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": {"site": ["https://123.666291.xyz","https://666.666291.xyz","https://www.muou.site","https://www.muou.asia"]},"timeout": 60},
     {"key": "蜡笔","name": "蜡笔 • 4K","type": 3,"api": "csp_PanWebShare","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": {"site": ["http://tvpanpan.site","http://feimo.fun","https://www.mmpanpan.site"]},"timeout": 60},
