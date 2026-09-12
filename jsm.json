@@ -1,5 +1,5 @@
 {
-  "spider": "./jar/spider.jar;md5;c0de87bb3f38b2ffc17ca643d2ce5eaf",
+  "spider": "./jar/spider.jar;md5;74bd9d0b899a41609a27d81b07909141",
   "lives": [
     {"name": "migu","type": 0,"url": "https://develop202.github.io/migu_video/interface.txt","playerType": 1,"ua": "okhttp/3.8.1","timeout": 20,"epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}","logo": "https://logo.wyfc.qzz.io/{name}.png"},
     {"name": "live","type": 0,"url": "https://epg.pw/test_channels.m3u","playerType": 1,"ua": "okhttp/3.8.1","timeout": 20,"epg": "https://epg.cdn.loc.cc/?ch={name}&date={date}","logo": "https://logo.wyfc.qzz.io/{name}.png"},
@@ -21,6 +21,7 @@
     {"key": "华谊影视","name": "华谊 • 影视","type": 3,"api": "./py/华谊影视.py","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1},
     {"key": "Didahd","name": "嘀嗒影视","type": 3,"api": "./py/Didahd.py","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1},
     {"key": "TVB云播","name": "TVB云播","type": 3,"api": "./py/TVB云播.py","searchable": 1,"quickSearch": 1,"filterable": 0,"changeable": 1},
+<<<<<<< HEAD
 <<<<<<< HEAD
     {"key": "qiletv","name": "奇乐影视","type": 3,"api": "csp_XBPQ","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"ext": "./json/奇乐.json","header": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0"}},
 <<<<<<< HEAD
@@ -164,6 +165,8 @@
 =======
 =======
     {"key": "养生堂","name": "养生 • 知识","type": 3,"api": "csp_YST","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "rect","ratio": 1.618}},
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
     {"key": "电影天堂","name": "影视 • 电影天堂","type": 1,"api": "http://caiji.dyttzyapi.com/api.php/provide/vod","searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"playerType": 2},
     {"key": "天涯采集","name": "影视 • 天涯","type": 1,"api": "http://tyyszy.com/api.php/provide/vod","style": {"type": "rect","ratio": 1.33},"searchable": 1,"quickSearch": 1,"filterable": 1,"changeable": 1,"playerType": 2},

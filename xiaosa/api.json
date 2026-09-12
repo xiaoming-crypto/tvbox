@@ -1,9 +1,10 @@
 {
-  "spider": "./spider.jar;md5;c0de87bb3f38b2ffc17ca643d2ce5eaf",
+  "spider": "./spider.jar;md5;74bd9d0b899a41609a27d81b07909141",
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wallpaper",
   "logo": "https://pic7.fukit.cn/autoupload/gE6Y0Af2tjXBCNig6CtNDI12_FRYNb81z6UPhMWD8iI/20251224/dJkT/1080X1080/logo.jpg/webp",
   "danmaku": "http://127.0.0.1:9978/proxy?do=danmaku&name={name}&episode={episode}",
   "sites": [
+<<<<<<< HEAD
     {"key": "豆瓣","name": "豆瓣 • 首页","type": 3,"api": "csp_Douban","searchable": 0},
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -144,6 +145,9 @@
     {"key": "push_agent","name": "手机 • 推送","type": 3,"api": "csp_Push","searchable": 0,"filterable": 0,"changeable": 0}
 =======
     {"key": "push_agent","name": "手机 • 推送","type": 3,"api": "csp_Push","searchable": 0,"filterable": 0,"changeable": 0,"hide": 1}
+>>>>>>> upstream/master
+=======
+    {"key": "豆瓣","name": "豆瓣 • 首页","type": 3,"api": "csp_Douban","searchable": 0}
 >>>>>>> upstream/master
   ],
   "lives": [
