@@ -1,9 +1,10 @@
 {
-  "spider": "./spider.jar;md5;74bd9d0b899a41609a27d81b07909141",
+  "spider": "./spider.jar;md5;90cc1cde8fbc2cded966e9cdb9a60bc9",
   "wallpaper": "http://127.0.0.1:9978/proxy?do=wallpaper",
   "logo": "https://pic7.fukit.cn/autoupload/gE6Y0Af2tjXBCNig6CtNDI12_FRYNb81z6UPhMWD8iI/20251224/dJkT/1080X1080/logo.jpg/webp",
   "danmaku": "http://127.0.0.1:9978/proxy?do=danmaku&name={name}&episode={episode}",
   "sites": [
+<<<<<<< HEAD
 <<<<<<< HEAD
     {"key": "豆瓣","name": "豆瓣 • 首页","type": 3,"api": "csp_Douban","searchable": 0},
 <<<<<<< HEAD
@@ -11,6 +12,10 @@
 =======
     {"key": "配置中心","name": "配置 • 中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.597}},
 =======
+    {"key": "配置中心","name": "配置 • 中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.618}},
+>>>>>>> upstream/master
+=======
+    {"key": "豆瓣","name": "豆瓣 • 首页","type": 3,"api": "csp_Douban","searchable": 0},
     {"key": "配置中心","name": "配置 • 中心","type": 3,"api": "csp_Config","searchable": 0,"changeable": 0,"indexs": 0,"style": {"type": "rect","ratio": 1.618}},
 >>>>>>> upstream/master
     {"key": "本地","name": "本地 • 视频","type": 3,"api": "csp_LocalFile"},
@@ -25,6 +30,7 @@
     {"key": "剧圈99","name": "剧圈 • APP","type": 3,"api": "csp_App99","ext": {"host": "http://124.221.3.182:19987/app/bn","versionName": "1.2.0","name": "剧圈圈","package": "com.qingtangxiaozhuan.xyz","buildNumber": "2002","buildSignature": "054FA8DDA4319C6B6A9B954CA5777541C993F00B1B0BD4394F7EDE48184C4594"}},
     {"key": "半日99","name": "半日 • APP","type": 3,"api": "csp_App99","ext": {"host": "http://103.217.190.91:19987/app/bn","versionName": "3.5.8","name": "半日闲","package": "com.yf.lelian","buildNumber": "2001","buildSignature": "A40DA80A59D170CAA950CF15C18C454D47A39B26989D8B640ECD745BA71BF5DC"}},
     {"key": "天堂","name": "天堂 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "电影天堂","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCduNEnfxGaLuQRk5ABzXHhPV43zi00sCHjLo8BYc+Wi6xXm2b4v0i28Sq4WlNCKhseft9fz8kO/qLr6/022o1RcuOU7e4GFL3U9WnNODwRBYSYWd+K8nqpI/tAUDmZEBGRWqjrc7x6aMl3A+xpnWkLbPCLsuhbuuUE3tv09oeOpwIDAQAB","dataKey": "D2KREWRIBVNAUJJYEDL4VFHOY2Q0PQ==","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.dytiantang.one","host": "","site": "https://dyttandroid04-1372779881.cos.ap-shanghai.myqcloud.com/app_dyttandroid.txt","version": "3.0.0.7","decrypt": "0"}},
+<<<<<<< HEAD
     {"key": "橘汁","name": "橘汁 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "橘汁","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCr8SzZhjYy+rsya1K09t8d2K50pWFoBkgUqMpKOiW+3IEVKd4eTdvg9RSOjQ82kypL6R9BnsmrS1V8s4PVDwjQbUtYhTPPC9Hz16qY7rpD6m0d2vr09/UpWQ5uOy9PR0QTrsioveZ+DIe9jc3C+zBCu/kZSY/R8stwJoiitki3gwIDAQAB","dataKey": "OW1WBLFZCLJ0WTNJCDMYEGXWYVP3PT0=","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.mxj.wylcjbxyx","host": "","site": "https://123-1349250429.cos.ap-shanghai.myqcloud.com/app.txt","version": "3.0.2.3","decrypt": "1"}},
     {"key": "华谊","name": "华谊 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "华谊","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCp9Ek4wIlQAtwFnuBRlsFiow2tr+4UOciGeNKbY7nL74etUqUb6fvpOSOHhFEfaWlfwUpOB17x3JEL3No19nfjCeVYrYPjlJcgoqUWH/tfIfFAQWvtxBIBlKazkhw8d3ChysWmeWRikKqkBsVRY4oqNPuj4sjm6Zult0U4I4prRQIDAQAB","dataKey": "NDBYSZR1DMRRZ05NSUCWEJNIYWLBPT0=","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.muyue.tool","host": "","site": "https://vip.123pan.cn/1851089669/oss/az5.txt","version": "1.0.0.4","decrypt": "1"}},
     {"key": "苹果","name": "苹果 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "小苹果","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCduNEnfxGaLuQRk5ABzXHhPV43zi00sCHjLo8BYc+Wi6xXm2b4v0i28Sq4WlNCKhseft9fz8kO/qLr6/022o1RcuOU7e4GFL3U9WnNODwRBYSYWd+K8nqpI/tAUDmZEBGRWqjrc7x6aMl3A+xpnWkLbPCLsuhbuuUE3tv09oeOpwIDAQAB","dataKey": "S0VNDTJHOFHHCNMRAW5IV2TOS2PBPQ==","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.juechufsh.android.xpg1","host": "","site": "https://xpgandroid03-1372779881.cos.ap-beijing.myqcloud.com/app_xpg_android.txt","version": "1.0.0.3","decrypt": "0"}},
@@ -32,6 +38,13 @@
     {"key": "蓝鹰","name": "蓝鹰 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"url": "http://103.217.190.91:5566","dataKey": "hagYExMdMkeWfemK","dataIv": "hagYExMdMkeWfemK","init": "initV122","ua": "okhttp/3.10.0"}},
     {"key": "蓝鸟","name": "蓝鸟 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"site": "https://lanyingjisu.oss-cn-wuhan-lr.aliyuncs.com/lyjszx.txt","dataKey": "oW5UxZ5kWVr1DI69","dataIv": "oW5UxZ5kWVr1DI69","init": "initV122","ua": "okhttp/3.10.0"}},
     {"key": "奇奇","name": "奇奇 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"site": "https://yun-1316442804.cos.ap-guangzhou.myqcloud.com/603.txt","dataKey": "FTgP4Gq8zPiqbt7M","dataIv": "FTgP4Gq8zPiqbt7M","init": "initV122","ua": "okhttp/3.10.0","search": "searchList8"}},
+=======
+    {"key": "橘汁","name": "橘汁 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "橘汁","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCr8SzZhjYy+rsya1K09t8d2K50pWFoBkgUqMpKOiW+3IEVKd4eTdvg9RSOjQ82kypL6R9BnsmrS1V8s4PVDwjQbUtYhTPPC9Hz16qY7rpD6m0d2vr09/UpWQ5uOy9PR0QTrsioveZ+DIe9jc3C+zBCu/kZSY/R8stwJoiitki3gwIDAQAB","dataKey": "OW1WBLFZCLJ0WTNJQMRSZ2DYSGNBPT0=","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.mxj.wylcjbxyx","host": "","site": "https://123-1349250429.cos.ap-shanghai.myqcloud.com/app.txt","version": "3.0.2.4","decrypt": "1"}},
+    {"key": "华谊","name": "华谊 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "华谊","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCp9Ek4wIlQAtwFnuBRlsFiow2tr+4UOciGeNKbY7nL74etUqUb6fvpOSOHhFEfaWlfwUpOB17x3JEL3No19nfjCeVYrYPjlJcgoqUWH/tfIfFAQWvtxBIBlKazkhw8d3ChysWmeWRikKqkBsVRY4oqNPuj4sjm6Zult0U4I4prRQIDAQAB","dataKey": "NDBYSZR1DMRRZ05NSUCWEJNIYWLBPT0=","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.muyue.tool","host": "","site": "https://vip.123pan.cn/1851089669/oss/az5.txt","version": "1.0.0.4","decrypt": "1"}},
+    {"key": "苹果","name": "苹果 • APP","type": 3,"api": "csp_AppDrama","searchable": 1,"quickSearch": 1,"filterable": 1,"ext": {"appName": "小苹果","publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCduNEnfxGaLuQRk5ABzXHhPV43zi00sCHjLo8BYc+Wi6xXm2b4v0i28Sq4WlNCKhseft9fz8kO/qLr6/022o1RcuOU7e4GFL3U9WnNODwRBYSYWd+K8nqpI/tAUDmZEBGRWqjrc7x6aMl3A+xpnWkLbPCLsuhbuuUE3tv09oeOpwIDAQAB","dataKey": "S0VNDTJHOFHHCNMRAW5IV2TOS2PBPQ==","dataIv": "OC1A06E197EF10CF3F6058CA7A803B5E","pkg": "com.juechufsh.android.xpg1","host": "","site": "https://xpgandroid03-1372779881.cos.ap-beijing.myqcloud.com/app_xpg_android.txt","version": "1.0.0.3","decrypt": "0"}},
+    {"key": "蓝鹰","name": "蓝鹰 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"url": "http://103.217.190.91:5566","dataKey": "hagYExMdMkeWfemK","dataIv": "hagYExMdMkeWfemK","init": "initV122","ua": "okhttp/3.10.0"}},
+    {"key": "蓝鸟","name": "蓝鸟 • APP","type": 3,"api": "csp_AppQi","searchable": 1,"changeable": 1,"ext": {"site": "https://lanyingjisu.oss-cn-wuhan-lr.aliyuncs.com/lyjszx.txt","dataKey": "oW5UxZ5kWVr1DI69","dataIv": "oW5UxZ5kWVr1DI69","init": "initV122","ua": "okhttp/3.10.0"}},
+>>>>>>> upstream/master
     {"key": "世界","name": "世界 • APP","type": 3,"api": "csp_AppGet","searchable": 1,"changeable": 1,"ext": {"url": "https://appcms.4ksj.app","dataKey": "O3K6rYx75Q4xtiIE","dataIv": "O3K6rYx75Q4xtiIE"}},
     {"key": "魔方","name": "魔方 • APP","type": 3,"api": "csp_AppGet","searchable": 1,"changeable": 1,"ext": {"url": "https://www.douy32mf.top","dataKey": "1234567887654321","dataIv": "1234567887654321"}},
     {"key": "王子","name": "王子 • APP","type": 3,"api": "csp_AppGet","searchable": 1,"changeable": 1,"ext": {"url": "https://app.95112475.xyz","dataKey": "5a9w6x58dsq6z3a6","dataIv": "5a9w6x58dsq6z3a6"}},
@@ -136,6 +149,7 @@
     {"key": "高中课堂","name": "高中 • 课堂","type": 3,"api": "csp_Bili","searchable": 0,"quickSearch": 0,"changeable": 0,"ext": {"json": "./json/GZKT.json","cookie": "http://127.0.0.1:9978/file/TVBox/bili_cookie.txt"},"style": {"type": "rect","ratio": 1.618}},
     {"key": "急救教学","name": "急救 • 教学","type": 3,"api": "csp_FirstAid","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "rect","ratio": 3.8},"gridview": "0-0-4.1"},
 <<<<<<< HEAD
+<<<<<<< HEAD
     {"key": "养生堂","name": "养生 • 知识","type": 3,"api": "csp_YST","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "rect","ratio": 1.597}},
 >>>>>>> upstream/master
 =======
@@ -148,6 +162,10 @@
 >>>>>>> upstream/master
 =======
     {"key": "豆瓣","name": "豆瓣 • 首页","type": 3,"api": "csp_Douban","searchable": 0}
+>>>>>>> upstream/master
+=======
+    {"key": "养生堂","name": "养生 • 知识","type": 3,"api": "csp_YST","searchable": 0,"quickSearch": 0,"changeable": 0,"style": {"type": "rect","ratio": 1.618}},
+    {"key": "push_agent","name": "手机 • 推送","type": 3,"api": "csp_Push","searchable": 0,"filterable": 0,"changeable": 0,"hide": 1}
 >>>>>>> upstream/master
   ],
   "lives": [
