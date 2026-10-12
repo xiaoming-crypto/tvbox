@@ -1,8 +1,12 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "spider": "./jar/fan.txt;md5;26bd32d068f360c1ec9cca0c636fd4db",
 =======
   "spider": "./jar/fan.txt;md5;6840f979e76dc29a2de74a82b8280c12",
+>>>>>>> upstream/master
+=======
+  "spider": "./jar/fan.txt;md5;c9024ccf34209d26eb556c728c3f07fa",
 >>>>>>> upstream/master
   "wallpaper": "https://动态壁纸.饭.eu.org/",
   "sites": [
