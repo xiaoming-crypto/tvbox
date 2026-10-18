@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "spider": "./jar/fan.txt;md5;25f4460aed52987f02865f02a1e83aa8",
-=======
   "spider": "./jar/fan.txt;md5;aa8d37525617af470b3b8dfc91db8669",
->>>>>>> upstream/master
   "wallpaper": "https://动态壁纸.饭.eu.org/",
   "sites": [
     {"key": "点我切源","name": "豆豆┃片单 <修复漫剧、海绵>","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
