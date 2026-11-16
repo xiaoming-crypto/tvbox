@@ -1,13 +1,5 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "spider": "./jar/fan.txt;md5;6d10a60af6c0976836933c5f3cf9e8a7",
-=======
-  "spider": "./jar/fan.txt;md5;76e9565340e6d28c363b914ca2d506ed",
->>>>>>> upstream/master
-=======
   "spider": "./jar/fan.txt;md5;fa1bcd5643872834ee03be5ba2f23ac7",
->>>>>>> upstream/master
   "wallpaper": "https://动态壁纸.饭.eu.org/",
   "sites": [
     {"key": "点我切源","name": "豆豆┃片单 <升级弹幕>","type": 3,"api": "csp_DouDouGuard","indexs": 1,"searchable": 0,"quickSearch": 0,"changeable": 0},
